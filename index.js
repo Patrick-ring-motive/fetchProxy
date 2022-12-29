@@ -41,10 +41,13 @@ async function onRequest(req, res) {
     let response = await fetch('https://' + hostTarget + req.url, options);
 
     /* copy over response headers 
-    TODO change this to loop through headers
+
     
     */
-    res.headers = response.headers;
+
+    for (const pair of response.headers.entries()) {
+      res.setHeader(pair[0], pair[1]);
+    }
 
 
     /* check to see if the response is not a text format */
