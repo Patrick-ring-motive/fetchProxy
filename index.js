@@ -4,7 +4,7 @@
 var fetch = require('node-fetch');
 var http = require('http');
 
-var hostTarget = 'www.google.com';
+var hostTarget = 'discord.com';
 
 http.createServer(onRequest).listen(3000);
 
@@ -40,7 +40,10 @@ async function onRequest(req, res) {
     /* fetch from your desired target */
     let response = await fetch('https://' + hostTarget + req.url, options);
 
-    /* copy over response headers */
+    /* copy over response headers 
+    TODO change this to loop through headers
+    
+    */
     res.headers = response.headers;
 
 
