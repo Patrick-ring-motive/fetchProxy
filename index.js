@@ -4,7 +4,7 @@
 var fetch = require('node-fetch');
 var http = require('http');
 
-var hostTarget = 'discord.com';
+var hostTarget = 'www.google.com';
 
 http.createServer(onRequest).listen(3000);
 
@@ -45,10 +45,8 @@ async function onRequest(req, res) {
     
     */
 
-    for (const pair of response.headers.entries()) {
-      res.setHeader(pair[0], pair[1]);
-    }
 
+    res.headers = response.headers;
 
     /* check to see if the response is not a text format */
     let ct = response.headers.get('content-type');
