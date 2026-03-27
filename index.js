@@ -1,6 +1,3 @@
-
-
-
 var fetch = require('node-fetch');
 var http = require('http');
 
@@ -11,8 +8,6 @@ http.createServer(onRequest).listen(3000);
 async function onRequest(req, res) {
   req.headers.host = hostTarget;
   req.headers.referer = hostTarget;
-
-
 
   /* start reading the body of the request*/
   var bdy = "";
@@ -45,7 +40,6 @@ async function onRequest(req, res) {
     
     */
 
-
     res.headers = response.headers;
 
     /* check to see if the response is not a text format */
@@ -57,7 +51,6 @@ async function onRequest(req, res) {
       let resBody = await response.text();
       res.end(resBody);
 
-
     } else {
 
       /* if not a text response then redirect straight to target */
@@ -67,6 +60,5 @@ async function onRequest(req, res) {
 
     }
   });
-
 
 }
